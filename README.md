@@ -1,6 +1,6 @@
 # PyGame chimp.py edited by Mikalai Asetski
 
-Images, sounds and background music stored at the same directory inside folder named data 
+Images, sounds and background music stored at the same directory inside folder named data. 
 To puase the game use SPACE key 
 
 
