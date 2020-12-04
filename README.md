@@ -7,12 +7,12 @@ To puase the game use SPACE key
 
 create global variables: 
 * SCREEN_WIDTH = 500
- * SCREEN_HEIGHT = 500
+* SCREEN_HEIGHT = 500
 
 during screen initialization at main loop applied desired size:
 * screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
 ## make monkey move around the outer edges of the window(10)
 
-I created move_around_edge() method inside Chimp class that simulates this type of motion whenever it is called inside main loop
+move_around_edge() method created inside Chimp class that simulates this type of motion whenever it is called inside main loop
 
