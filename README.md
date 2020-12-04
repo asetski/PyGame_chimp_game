@@ -16,8 +16,8 @@ during screen initialization at main loop applied desired size:
 
 move_around_edge() method created inside Chimp class that simulates this type of motion whenever it is called inside main loop
 * def _move_around_edge(self):
-*        "move the monkey around the outer edges"
-*        if self.horizontal:
+**        "move the monkey around the outer edges"
+**        if self.horizontal:
 *            self.rect = self.rect.move((self.move, 0))
 *            if self.rect.left < self.area.left or \
 *                self.rect.right > self.area.right :
