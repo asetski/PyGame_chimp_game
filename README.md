@@ -41,8 +41,8 @@ Inside main method before main loop created and initialize to 0  two local varia
 * count_miss = 0
 
 After that incriment them every time the event (hit/miss) taken place inside main loop.
-3.  elif event.type == MOUSEBUTTONDOWN:
-4.               if fist.punch(chimp):
+3.  "elif event.type == MOUSEBUTTONDOWN:"
+               if fist.punch(chimp):
                     background_music.stop()
                     punch_sound.play() #punch
                     chimp.punched()
