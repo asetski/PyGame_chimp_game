@@ -45,11 +45,11 @@ After that incriment them every time the event (hit/miss) taken place inside mai
 
 3.  elif event.type == MOUSEBUTTONDOWN:
 4.               if fist.punch(chimp):
-5.                   background_music.stop()
-6.                    punch_sound.play() #punch
-7.                    chimp.punched()
-8.                    count_punch += 1
-9.                else:
+                   background_music.stop()
+                    punch_sound.play() #punch
+                    chimp.punched()
+                    count_punch += 1
+                 else:
 10.                   background_music.stop()
 11.                   whiff_sound.play() #miss
 12.                   count_miss += 1
