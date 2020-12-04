@@ -15,7 +15,7 @@ during screen initialization at main loop applied desired size:
 ## make monkey move around the outer edges of the window(10)
 
 move_around_edge() method created inside Chimp class that simulates this type of motion whenever it is called inside main loop
-1. def _move_around_edge(self)
+1. def _move_around_edge(self):
 2.       "move the monkey around the outer edges"
 3.        if self.horizontal:
 4.            self.rect = self.rect.move((self.move, 0))
@@ -30,3 +30,19 @@ move_around_edge() method created inside Chimp class that simulates this type of
 13.                self.image = pygame.transform.flip(self.image, 1, 0)
 14.                self.move = -self.move
 15.                self.horizontal = True   
+
+1. def _move_around_edge(self):
+2.         "move the monkey around the outer edges"
+3.        if self.horizontal:
+            self.rect = self.rect.move((self.move, 0))
+            if self.rect.left < self.area.left or \
+                self.rect.right > self.area.right :
+                self.rect = self.rect.move((0, self.move)) 
+                self.horizontal = False
+        else:
+            self.rect = self.rect.move((0, self.move)) 
+            if self.rect.top < self.area.top+20 or self.rect.bottom > self.area.bottom:
+                self.rect = self.rect.move((-self.move, 0))
+                self.image = pygame.transform.flip(self.image, 1, 0)
+                self.move = -self.move
+                self.horizontal = True   
