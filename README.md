@@ -37,12 +37,12 @@ move_around_edge() method created inside Chimp class that simulates this type of
  ## keep score (hit and misses) and display on screen cleanly and clearly - your design (10)
  
 Inside main method before main loop created and initialize to 0  two local variables: count_punch and count_miss. 
-*count_punch = 0 
-*count_miss = 0
+* count_punch = 0 
+* count_miss = 0
 
 After that incriment them every time the event (hit/miss) taken place inside main loop.
-3. elif event.type == MOUSEBUTTONDOWN:
-4.              if fist.punch(chimp):
+3.  elif event.type == MOUSEBUTTONDOWN:
+4.               if fist.punch(chimp):
                     background_music.stop()
                     punch_sound.play() #punch
                     chimp.punched()
