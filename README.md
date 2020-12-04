@@ -14,7 +14,7 @@ during screen initialization at main loop applied desired size:
 
 ## make monkey move around the outer edges of the window(10)
 
-move_around_edge() method created inside Chimp class that simulates this type of motion whenever it is called inside main loop. Add additional variable horizontal inside  Chimp class to alternate from vertical and horizontal movements. 
+move_around_edge() method created inside Chimp class that simulates this type of motion whenever it is called inside main loop. (called during medium level game) Add additional variable horizontal inside  Chimp class to alternate from vertical and horizontal movements. 
 
 
 1. def _move_around_edge(self):
@@ -32,3 +32,50 @@ move_around_edge() method created inside Chimp class that simulates this type of
                 self.image = pygame.transform.flip(self.image, 1, 0)
                 self.move = -self.move
                 self.horizontal = True   
+ 
+ 
+ ## keep score (hit and misses) and display on screen cleanly and clearly - your design (10)
+ 
+Inside main method before main loop created and initialize to 0  two local variables: count_punch and count_miss. 
+*count_punch = 0 
+*count_miss = 0
+
+After that incriment them every time the event (hit/miss) taken place inside main loop.
+3. elif event.type == MOUSEBUTTONDOWN:
+4.              if fist.punch(chimp):
+                    background_music.stop()
+                    punch_sound.play() #punch
+                    chimp.punched()
+                    count_punch += 1
+                else:
+                    background_music.stop()
+                    whiff_sound.play() #miss
+                    count_miss += 1
+
+Then display everything. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
