@@ -8,9 +8,9 @@ To puase the game use SPACE key
 
 create global variables: 
 1. SCREEN_WIDTH = 500
-2.  SCREEN_HEIGHT = 500
+2. SCREEN_HEIGHT = 500
 
 during screen initialization at main loop applied desired size:
-3.  screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+** screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
 ## make monkey move around 
