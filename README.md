@@ -15,7 +15,7 @@ during screen initialization at main loop applied desired size:
 ## make monkey move around the outer edges of the window(10)
 
 move_around_edge() method created inside Chimp class that simulates this type of motion whenever it is called inside main loop
-1. def _move_around_edge(self):
+1. def _move_around_edge(self)
 2.       "move the monkey around the outer edges"
 3.        if self.horizontal:
 4.            self.rect = self.rect.move((self.move, 0))
