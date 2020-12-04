@@ -50,9 +50,9 @@ After that incriment them every time the event (hit/miss) taken place inside mai
                     chimp.punched()
                     count_punch += 1
                  else:
-10.                   background_music.stop()
-11.                   whiff_sound.play() #miss
-12.                   count_miss += 1
+                    background_music.stop()
+                    whiff_sound.play() #miss
+                    count_miss += 1
 
 Then display everything. 
  
