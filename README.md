@@ -71,7 +71,7 @@ screen.blit(background, (0, 0))
  
  ## allow user to pause the game (5)
  
-To simulate the pause user must press SPACE key during game. Created four methods in order to add pause function to the game: paused(), button(), unpaused(), and quitgame(). Method paused() and unpaused() use global variable "pause" to pause and start main loop. Used additional screen buttons. Which change color when click with mouse. Creared with method button(). Have two options to continue and to quit the game. Method quitgame() created to stop the game. was pressed.  
+To simulate the pause user must press SPACE key during game. Created four methods in order to add pause function to the game: paused(), button(), unpaused(), and quitgame(). Method paused() and unpaused() use global variable "pause" to pause and start again main loop. I used additional screen buttons, which will change the color when you click on them  with mouse. Buttons created with method button(). When game paused it has  two options to continue and to quit the game. Method quitgame() created to stop the game. 
 
 ```
 def paused(scr):
@@ -194,10 +194,13 @@ whiff_sound = load_sound('missed.wav') # change the audio
 
 ```
 
+## add background music be sure to pause it when the user pauses the game
 
+I found speaker.wav file online. Created varieble background_music. Inititialize it by using already created method load_sound() inside main() method but before main loop. 
+```
+background_music = load_sound('speaker.wav') 
 
-
-
+```
 
 
 
