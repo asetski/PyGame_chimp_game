@@ -68,9 +68,9 @@ Then display everything:
  
 To simulate the pause user must press SPACE key during game. Created four methods in order to add pause function to the game: paused(), button(), unpaused(), and quitgame(). Method paused() and unpaused() use global variable "pause" to pause and start main loop. Used additional screen buttons. Which change color when click with mouse. Creared with method button(). Have two options to continue and to quit the game. Method quitgame() created to stop the game. Inside main loop I added extra if else branch to check if SPACE was pressed.  
 
-
-1. def paused(scr):
-2.   "pause the game"
+```
+def paused(scr):
+    "pause the game"
      global pause
      font = pygame.font.Font(None, 115)
      txt_position = ( 110, (SCREEN_HEIGHT/2 - 100)) 
@@ -85,12 +85,10 @@ To simulate the pause user must press SPACE key during game. Created four method
         button("Continue", scr, 100,350,100,50, unpaused)
         button("Quit", scr, 320,350,100,50, quitegame )
         pygame.display.update()
-        
  
  
- 
-1. def button(msg, scr, x, y, width, height, action=None):
-2.   "creates a button on selected screen"
+def button(msg, scr, x, y, width, height, action=None):
+   "creates a button on selected screen"
     mouse = pygame.mouse.get_pos()
     click = pygame.mouse.get_pressed()
     if x + width > mouse[0] > x and y + height > mouse[1] > y:
@@ -104,20 +102,16 @@ To simulate the pause user must press SPACE key during game. Created four method
     txt = sm_font.render(msg,1,(0,0,0))
     scr.blit(txt, txt_position)
    
-   
-   
-1. def unpaused():
-2.     "unpause the game"
+def unpaused():
+      "unpause the game"
        global pause
        pause = False
 
 
-
-
-1. def quitegame():
-2.    "quit the game"
+def quitegame():
+    "quit the game"
      pygame.quit()
      quit()
 
-
+```
 
