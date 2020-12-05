@@ -90,6 +90,7 @@ def paused(scr):
         button("Continue", scr, 100,350,100,50, unpaused)
         button("Quit", scr, 320,350,100,50, quitegame )
         pygame.display.update()
+        
  
  
 def button(msg, scr, x, y, width, height, action=None):
