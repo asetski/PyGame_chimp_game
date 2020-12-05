@@ -130,9 +130,7 @@ elif event.type == KEYDOWN and event.key == K_SPACE:
 
 ## give user menu option to select various levels (10) - easy and medium
 
-Created method game_intro() which starts the game and give user options to select easy, medium and quit buttons. Use another global veriable "levels" which helps to select action, between easy (walk() method)  and midium (move_around_edge() method) in my case. 
-
-
+Created method game_intro() which starts the game and give user options to select easy, medium and quit buttons. 
 ```
 def game_intro():
     "starts the game"
@@ -173,8 +171,19 @@ def medium():
     levels = 2
     main(levels = 2)
 ```
+Use another global veriable "levels" which helps to select action, between easy (walk() method)  and midium (move_around_edge() method) in Chipm class. 
 
-
+```
+def update(self):
+        "walk or spin, depending on the monkeys state"
+        if self.dizzy:
+            self._spin() 
+        else:
+            if levels == 1:
+                self._walk()
+            elif levels == 2:
+                self._move_around_edge()
+```
 
 
 
