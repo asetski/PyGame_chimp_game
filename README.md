@@ -69,9 +69,9 @@ screen.blit(background, (0, 0))
            pygame.display.flip() 
  ```
  
- ## allow user to puas the game (5)
+ ## allow user to pause the game (5)
  
-To simulate the pause user must press SPACE key during game. Created four methods in order to add pause function to the game: paused(), button(), unpaused(), and quitgame(). Method paused() and unpaused() use global variable "pause" to pause and start main loop. Used additional screen buttons. Which change color when click with mouse. Creared with method button(). Have two options to continue and to quit the game. Method quitgame() created to stop the game. Inside main loop I added extra if else branch to check if SPACE was pressed.  
+To simulate the pause user must press SPACE key during game. Created four methods in order to add pause function to the game: paused(), button(), unpaused(), and quitgame(). Method paused() and unpaused() use global variable "pause" to pause and start main loop. Used additional screen buttons. Which change color when click with mouse. Creared with method button(). Have two options to continue and to quit the game. Method quitgame() created to stop the game. was pressed.  
 
 ```
 def paused(scr):
@@ -119,4 +119,27 @@ def quitegame():
      quit()
 
 ```
+Inside main loop I added extra if else branch to check if SPACE 
+
+```
+elif event.type == KEYDOWN and event.key == K_SPACE:
+                pause = True
+                background_music.stop()
+                paused(screen)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
