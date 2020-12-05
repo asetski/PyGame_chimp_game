@@ -66,48 +66,52 @@ Then display everything:
  
  ## allow user to puas the game (5)
  
-To simulate the pause user must press SPACE key during game. Created four methods in order to add pause function to the game: paused(), button(), unpaused(), and quitgame(). Method paused() and unpaused() use global variable "pause" to stop and start main loop. Used additional screen buttons created with method button() to continue and to quit the game. Method quitgame() crated to stop the game. Inside main loop I added extra if else branch to check if SPACE was pressed.  
+To simulate the pause user must press SPACE key during game. Created four methods in order to add pause function to the game: paused(), button(), unpaused(), and quitgame(). Method paused() and unpaused() use global variable "pause" to pause and start main loop. Used additional screen buttons. Which change color when click with mouse. Creared with method button(). Have two options to continue and to quit the game. Method quitgame() created to stop the game. Inside main loop I added extra if else branch to check if SPACE was pressed.  
 
 
 1. def paused(scr):
 2.     "pause the game"
 3.     global pause
 4.     font = pygame.font.Font(None, 115)
-    txt_position = ( 110, (SCREEN_HEIGHT/2 - 100)) 
-    txt = font.render("Paused" , 1 , (0,0,0))
-    scr.blit(txt, txt_position)
-    pygame.mouse.set_visible(1)
-    while pause:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-                quit()
-        button("Continue", scr, 100,350,100,50, unpaused)
-        button("Quit", scr, 320,350,100,50, quitegame )
-        pygame.display.update()
+5.     txt_position = ( 110, (SCREEN_HEIGHT/2 - 100)) 
+6.     txt = font.render("Paused" , 1 , (0,0,0))
+7.     scr.blit(txt, txt_position)
+8.     pygame.mouse.set_visible(1)
+9.     while pause:
+10.        for event in pygame.event.get():
+11.            if event.type == pygame.QUIT:
+12.                pygame.quit()
+13.                quit()
+14.        button("Continue", scr, 100,350,100,50, unpaused)
+15.        button("Quit", scr, 320,350,100,50, quitegame )
+16.        pygame.display.update()
         
 
-def button(msg, scr, x, y, width, height, action=None):
-    "creates a button on selected screen"
-    mouse = pygame.mouse.get_pos()
-    click = pygame.mouse.get_pressed()
-    if x + width > mouse[0] > x and y + height > mouse[1] > y:
-        pygame.draw.rect(scr, (255,0,0) , (x,y,width,height))
-        if click[0] == 1 and action != None:
-            action()         
-    else:
-        pygame.draw.rect(scr, (0,255,0) , (x,y,width,height))
-    sm_font = pygame.font.Font(None, 20)
-    txt_position = ( (x + (width/2) - 25), (y+(height/2)) )
-    txt = sm_font.render(msg,1,(0,0,0))
-    scr.blit(txt, txt_position)
+1. def button(msg, scr, x, y, width, height, action=None):
+2.   "creates a button on selected screen"
+3.    mouse = pygame.mouse.get_pos()
+4.    click = pygame.mouse.get_pressed()
+5.    if x + width > mouse[0] > x and y + height > mouse[1] > y:
+6.       pygame.draw.rect(scr, (255,0,0) , (x,y,width,height))
+7.        if click[0] == 1 and action != None:
+8.            action()         
+9.    else:
+10.        pygame.draw.rect(scr, (0,255,0) , (x,y,width,height))
+11.    sm_font = pygame.font.Font(None, 20)
+12.    txt_position = ( (x + (width/2) - 25), (y+(height/2)) )
+13.    txt = sm_font.render(msg,1,(0,0,0))
+14.    scr.blit(txt, txt_position)
 
-def unpaused():
-    "unpause the game"
-    global pause
-    pause = False
+1. def unpaused():
+2.     "unpause the game"
+3.     global pause
+4.     pause = False
 
 
+1. def quitegame():
+2.     "quit the game"
+3.     pygame.quit()
+4.     quit()
 
 
 
