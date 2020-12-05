@@ -128,7 +128,7 @@ elif event.type == KEYDOWN and event.key == K_SPACE:
                 paused(screen)
 ```
 
-## give user menu option to select various levels (10) - easy, medium, and harder(+5)
+## give user menu option to select various levels (10) - easy, medium, and hardest(+10)
 
 Created method game_intro() which starts the game and give user options to select easy, medium and quit buttons. 
 ```
@@ -171,7 +171,7 @@ def medium():
     levels = 2
     main(levels = 2)
 
-def harder():
+def hardest():
     "calls harder level"
     global levels
     levels = 3
@@ -192,7 +192,7 @@ Use another global veriable "levels" which helps to select action, between easy 
             elif levels == 3:
                 self._random_move()
 ```
-random_move() method created inside Chimp class, where monkey moves randomly around the edges. Atribute "speed" added to Chimp class. 
+random_move() method created inside Chimp class, where monkey moves randomly in any direction. Atribute "speed" added to Chimp class. 
 
 ```
 def _random_move(self):
