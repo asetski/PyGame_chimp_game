@@ -119,7 +119,7 @@ def quitegame():
      quit()
 
 ```
-Inside main loop I added extra if else branch to check if SPACE 
+Inside main loop I added extra if else branch to check if SPACE key was pressed 
 
 ```
 elif event.type == KEYDOWN and event.key == K_SPACE:
@@ -128,16 +128,51 @@ elif event.type == KEYDOWN and event.key == K_SPACE:
                 paused(screen)
 ```
 
+## give user menu option to select various levels (10) - easy and medium
+
+Created method game_intro() which starts the game and give user options to select easy, medium and quit buttons. Use another global veriable "levels" which helps to select action, between easy (walk() method)  and midium (move_around_edge() method) in my case. 
 
 
+```
+def game_intro():
+    "starts the game"
+    intro = True
+    #Initialize Everything
+    pygame.init()
+    gameDisplay = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT)) 
+    gameDisplay.fill((225,255,255))
+    pygame.display.set_caption('Monkey Fever game options: ')
+    pygame.mouse.set_visible(1)
 
+    while intro:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                quit()
+    
+         
+        button("EASY", gameDisplay, 150,150,100,50, easy)
+        button("MEDIUM",gameDisplay, 150,250,100,50, medium)
+        button("QUIT",gameDisplay, 150,350,100,50, quitegame)
 
+        pygame.display.update()
 
+```
+also two simple method created for calling main loop depending on level
 
+```
+def easy():
+    "calls easy level"
+    global levels
+    levels = 1
+    main(levels = 1)
 
-
-
-
+def medium():
+    "calls medium level"
+    global levels
+    levels = 2
+    main(levels = 2)
+```
 
 
 
