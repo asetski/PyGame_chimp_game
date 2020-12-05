@@ -128,7 +128,7 @@ elif event.type == KEYDOWN and event.key == K_SPACE:
                 paused(screen)
 ```
 
-## give user menu option to select various levels (10) - easy and medium
+## give user menu option to select various levels (10) - easy, medium, and harder(+5)
 
 Created method game_intro() which starts the game and give user options to select easy, medium and quit buttons. 
 ```
@@ -149,12 +149,12 @@ def game_intro():
                 quit()
     
          
-        button("EASY", gameDisplay, 150,150,100,50, easy)
-        button("MEDIUM",gameDisplay, 150,250,100,50, medium)
-        button("QUIT",gameDisplay, 150,350,100,50, quitegame)
+        button("EASY", gameDisplay, 150,100,100,50, easy)
+        button("MEDIUM",gameDisplay, 150,180,100,50, medium)
+        button("HARDER",gameDisplay, 150,260,100,50, harder)
+        button("QUIT",gameDisplay, 150,340,100,50, quitegame)
 
         pygame.display.update()
-
 ```
 also two simple method created for calling main loop depending on level
 
@@ -170,11 +170,17 @@ def medium():
     global levels
     levels = 2
     main(levels = 2)
+
+def harder():
+    "calls harder level"
+    global levels
+    levels = 3
+    main(levels = 3)
 ```
 Use another global veriable "levels" which helps to select action, between easy (walk() method)  and midium (move_around_edge() method) in Chipm class. 
 
 ```
-def update(self):
+ def update(self):
         "walk or spin, depending on the monkeys state"
         if self.dizzy:
             self._spin() 
@@ -183,9 +189,25 @@ def update(self):
                 self._walk()
             elif levels == 2:
                 self._move_around_edge()
+            elif levels == 3:
+                self._random_move()
+```
+random_move() method created inside Chimp class, where monkey moves randomly around the edges. Atribute "speed" added to Chimp class. 
+
+```
+def _random_move(self):
+        "move the monkey random"
+        self.rect = self.rect.move((self.speed))
+        if self.rect.left < self.area.left or self.rect.right > self.area.right :
+            self.image = pygame.transform.flip(self.image, 1, 0)
+            self.speed[0] = - self.speed[0]
+             
+        if self.rect.top < self.area.top or self.rect.bottom > self.area.bottom:
+            self.speed[1] = - self.speed[1]
 ```
 
-# change the audio for a miss to say "missed" (5)
+
+## change the audio for a miss to say "missed" (5)
 
 I recored my personal voice saing "missed", converted into .wav file, named it "missed.wav" and used it instead of whiff.wav 
 
@@ -194,23 +216,39 @@ whiff_sound = load_sound('missed.wav') # change the audio
 
 ```
 
-## add background music be sure to pause it when the user pauses the game
+## add background music be sure to pause it when the user pauses the game(10)
 
 I found speaker.wav file online. Created varieble background_music. Inititialize it by using already created method load_sound() inside main() method but before main loop. 
 ```
 background_music = load_sound('speaker.wav') 
 
 ```
+when main loop starts background music starts playing 
 
+```
+background_music.play()
+```
 
+I stop background music inside main loop any time when I use sound effects (miss/hit) and pause the game
+```
+  elif event.type == MOUSEBUTTONDOWN:
+                if fist.punch(chimp):
+                    background_music.stop()
+                    punch_sound.play() #punch
+                    chimp.punched()
+                    count_punch += 1
+                else:
+                    background_music.stop()
+                    whiff_sound.play() #miss
+                    count_miss += 1
+            elif event.type == MOUSEBUTTONUP:
+                fist.unpunch()
+            elif event.type == KEYDOWN and event.key == K_SPACE:
+                pause = True
+                background_music.stop()
+                paused(screen)
 
-
-
-
-
-
-
-
+```
 
 
 
