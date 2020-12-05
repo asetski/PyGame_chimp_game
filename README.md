@@ -1,6 +1,6 @@
 # PyGame chimp.py edited by Mikalai Asetski
 
-Images, sounds and background music stored at the same directory inside folder named data. 
+Images, sounds and background music stored at the same directory inside folder named "data". 
 To puase the game use SPACE key 
 
 ## make screen bigger(5)
@@ -184,6 +184,30 @@ def update(self):
             elif levels == 2:
                 self._move_around_edge()
 ```
+
+# change the audio for a miss to say "missed" (5)
+
+I recored my personal voice saing "missed", converted into .wav file, named it "missed.wav" and used it instead of whiff.wav 
+
+```
+whiff_sound = load_sound('missed.wav') # change the audio 
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
