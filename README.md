@@ -54,9 +54,15 @@ After that incriment them every time the event (hit/miss) taken place inside mai
                     whiff_sound.play() #miss
                     count_miss += 1
 
-Then display everything. 
+Then display everything: 
  
- 
+5. screen.blit(background, (0, 0))
+6.         punch_text = sm_font.render("Punch count: " + str(count_punch), 1, (255,0,0))
+7.         screen.blit(punch_text, punch_text_position)
+8.         miss_text = sm_font.render("Miss count: " + str(count_miss), 1, (255,100,0))
+9.         screen.blit(miss_text, miss_text_position)
+10.        allsprites.draw(screen)
+11.        pygame.display.flip() 
  
  
  
