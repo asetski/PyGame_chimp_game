@@ -64,8 +64,56 @@ Then display everything:
            allsprites.draw(screen)
            pygame.display.flip() 
  
+ ## allow user to puas the game (5)
  
+To simulate the pause user must press SPACE key during game. Created four methods in order to add pause function to the game: paused(), button(), unpaused(), and quitgame(). Method paused() and unpaused() use global variable "pause" to stop and start main loop. Used additional screen buttons created with method button() to continue and to quit the game. Method quitgame() crated to stop the game. Inside main loop I added extra if else branch to check if SPACE was pressed.  
  
+7. def paused(scr):
+8.     "pause the game"
+9.     global PAUSE
+10.    font = pygame.font.Font(None, 115)
+11.    txt_position = ( 110, (SCREEN_HEIGHT/2 - 100)) 
+12.    txt = font.render("Paused" , 1 , (0,0,0))
+13.    scr.blit(txt, txt_position)
+14.    pygame.mouse.set_visible(1)
+15.    while PAUSE:
+16.        for event in pygame.event.get():
+17.            if event.type == pygame.QUIT:
+18.                pygame.quit()
+19.                quit()
+20.        button("Continue", scr, 100,350,100,50, unpaused)
+21.        button("Quit", scr, 320,350,100,50, quitegame )
+22.        pygame.display.update()
+        
+
+
+
+
+def button(msg, scr, x, y, width, height, action=None):
+    "creates a button on selected screen"
+    mouse = pygame.mouse.get_pos()
+    click = pygame.mouse.get_pressed()
+    if x + width > mouse[0] > x and y + height > mouse[1] > y:
+        pygame.draw.rect(scr, (255,0,0) , (x,y,width,height))
+        if click[0] == 1 and action != None:
+            action()         
+    else:
+        pygame.draw.rect(scr, (0,255,0) , (x,y,width,height))
+
+    sm_font = pygame.font.Font(None, 20)
+    txt_position = ( (x + (width/2) - 25), (y+(height/2)) )
+    txt = sm_font.render(msg,1,(0,0,0))
+    scr.blit(txt, txt_position)
+
+def unpaused():
+    "unpause the game"
+    global PAUSE
+    PAUSE = False
+
+def quitegame():
+    "quit the game"
+    pygame.quit()
+    quit()
  
  
  
