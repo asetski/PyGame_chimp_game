@@ -58,11 +58,11 @@ Then display everything:
  
 5. screen.blit(background, (0, 0))
 6.         punch_text = sm_font.render("Punch count: " + str(count_punch), 1, (255,0,0))
-7.         screen.blit(punch_text, punch_text_position)
-8.         miss_text = sm_font.render("Miss count: " + str(count_miss), 1, (255,100,0))
-9.         screen.blit(miss_text, miss_text_position)
-10.        allsprites.draw(screen)
-11.        pygame.display.flip() 
+           screen.blit(punch_text, punch_text_position)       
+           miss_text = sm_font.render("Miss count: " + str(count_miss), 1, (255,100,0))
+           screen.blit(miss_text, miss_text_position)
+           allsprites.draw(screen)
+           pygame.display.flip() 
  
  
  
